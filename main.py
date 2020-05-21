@@ -37,7 +37,7 @@ def command():
         # pause in 1 second
         jack_heards.pause_threshold = 1
         # clean extra noise
-        print("Розпізнавати...")
+        print("Розпізнавати....")
         jack_heards.adjust_for_ambient_noise(source, duration=1)
         # rec
         audio = jack_heards.listen(source)
