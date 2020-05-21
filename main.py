@@ -1,4 +1,3 @@
-
 import pyttsx3
 import speech_recognition as sr
 import pyautogui
@@ -59,14 +58,21 @@ def makeSomething(task):
         task = recognize_cmd(task)
         if task == 'yandex_song_next':
             speak(random.choice(main_dict['accomp']))
-            pyautogui.hotkey('ctrl', 'l')
+            pyautogui.keyDown('ctrl')
+            pyautogui.press('l')
+            pyautogui.keyUp('ctrl')
 
         elif task == 'yandex_song_back':
             speak(random.choice(main_dict['accomp']))
-            pyautogui.hotkey('ctrl', 'k')
+            pyautogui.keyDown('ctrl')
+            pyautogui.press('k')
+            pyautogui.keyUp('ctrl')
+
         elif task == 'yandex_song_pause':
             speak(random.choice(main_dict['accomp']))
-            pyautogui.hotkey('ctrl', 'p')
+            pyautogui.keyDown('ctrl')
+            pyautogui.press('p')
+            pyautogui.keyUp('ctrl')
         else:
             speak(random.choice(main_dict['wrong_rec']))
 
@@ -81,7 +87,7 @@ if __name__ == '__main__':
         # commands
         "cmds": {
             "yandex_song_next": ('переключи', 'следующую'),
-            "yandex_song_back": ('верни'),
+            "yandex_song_back": ('верни', 'перемотай'),
             "yandex_song_pause": ('останови', 'включи музыку', 'паузу','пауза')
         },
         "accomp": ('виконувавши', 'одну секундочку', 'вже виконую', 'зараз', 'так, звичайно','буде зроблено', 'знову робота'),
