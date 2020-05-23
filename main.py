@@ -78,11 +78,12 @@ def yandex_requst_log_cather():
         speak('Сайт впав і помер, жарти не буде')
         return
     soup = BeautifulSoup(page.text, 'lxml')
-    lines = soup.findAll('item')
-    for line in range(len(lines)):
-        if lines[line].text != None:
-            speak('один шкіряний мішок шукає ' + translate_on_uk(lines[line].text))
-            break
+    line = soup.find('item')
+    if line.text != None:
+        speak('один шкіряний мішок шукає ' + translate_on_uk(line.text))
+    else:
+        line = soup.find('item')
+        speak('один шкіряний мішок шукає ' + translate_on_uk(line.text))
 
 
 # all command
